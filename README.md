@@ -1,2 +1,7 @@
 # sensitivity_analysis
 Investigate the influence of five major factors on the tensile stress of concrete sewer pipes.
+
+Failure in wastewater infrastructure systems is recognized as a serious, worldwide concern which can have irreversible impacts on health, environment, and the economy. Concrete sewer pipes are most commonly used in wastewater systems. Cracks form in them when the tensile stress on the pipes exceeds its tensile strain. The geometry of the pipe, materials used, properties of the soil in which the pipe is buried, etc. can affect the tensile stress on the pipe. There are currently 11 known factors that can influence the tensile stress. In this project, we considered 5 of them. Our goal was to identify the dominant factors that influence the tensile stress on the pipe. We also estimated a safety region for the significant variables that would keep the tensile stress within permissible limits.
+
+
+We used a simulator that provides the tensile stress as the output response. Due to the high com- putational complexity, the simulator takes about 2 hours for a single run. We fitted the simulator data to two models that we studied in the course; Bayesian Gaussian Process (GP) and Bayesian Additive Regression Trees (BART). We then used the fitted models to perform Sensitivity Analysis (SA). We also selected one of the two models based on Mean Squared Prediction Error (MSPE) and it was used for some further analysis.
