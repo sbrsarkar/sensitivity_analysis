@@ -12,7 +12,7 @@ We chose a sample size of 50 where 40 samples were used as training data to fit 
 
 Table 2.1: Simulator inputs
 |Xi   |Predictor name|mean (μi)|sd (σi)|
-|----:|-------------:|--------:|------:|
+|-----|:------------:|:-------:|------:|
 |X1   |compressive strength of concrete|8.597|0.184|
 |X2.  |elastic modulus of bedding soil|8.153|0.198|
 |X3.  |density of bedding soil|8.759|0.198|
