@@ -11,12 +11,14 @@ We used a simulator that provides the tensile stress as the output response. Due
 We chose a sample size of 50 where 40 samples were used as training data to fit the two models (Bayesian GP and BART) and the remaining 10 samples were used as the testing data for validation and to measure the predicting performance of each model. To generate a randomized design of the experiment, we implemented a space-filling design method, the Latin Hypercube Sampling (LHS) on the domain of the five predictors. Based on the prior information we have on the five predictors, all of them are distributed independently as the lognormal distribution with corresponding mean and standard deviation of the Gaussian component are given in Table ??.
 
 Table 2.1: Simulator inputs
+
+
 |Xi   |Predictor name|mean (μi)|sd (σi)|
 |-----|:------------:|:-------:|------:|
 |X1   |compressive strength of concrete|8.597|0.184|
-|X2.  |elastic modulus of bedding soil|8.153|0.198|
-|X3.  |density of bedding soil|8.759|0.198|
-|X4.  |elastic modulus of backfilling soil|−2.763|0.071|
-|X5.  |density of backfilling soil|−2.595|0.071|
+|X2   |elastic modulus of bedding soil|8.153|0.198|
+|X3   |density of bedding soil|8.759|0.198|
+|X4   |elastic modulus of backfilling soil|−2.763|0.071|
+|X5   |density of backfilling soil|−2.595|0.071|
 
 For i = 1,...,5, we generate the inputs using LHS such that Xi ∈ [ai,bi], where ai and bi are the 5th and the 95th quantile of the lognormal distribution of Xi respectively. The response Y (x), tensile stress, is recorded by running the simulator. Before fitting the dataset to any model, the samples for each Xi are normalized to the interval [0, 1].
