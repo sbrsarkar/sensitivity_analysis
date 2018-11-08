@@ -13,12 +13,12 @@ We chose a sample size of 50 where 40 samples were used as training data to fit 
 Table 2.1: Simulator inputs
 
 
-|Xi   |Predictor name|mean (μi)|sd (σi)|
+|<img src="http://latex.codecogs.com/gif.latex?X_i" title="X_i" />   |Predictor name|mean (<img src="http://latex.codecogs.com/gif.latex?\mu_i" title="\mu_i" />)|sd (<img src="http://latex.codecogs.com/gif.latex?\sigma_i" title="\sigma_i" />)|
 |-----|:------------:|:-------:|------:|
-|X1   |compressive strength of concrete|8.597|0.184|
-|X2   |elastic modulus of bedding soil|8.153|0.198|
-|X3   |density of bedding soil|8.759|0.198|
-|X4   |elastic modulus of backfilling soil|−2.763|0.071|
-|X5   |density of backfilling soil|−2.595|0.071|
+|<img src="http://latex.codecogs.com/gif.latex?X_1" title="X_1" />   |compressive strength of concrete|8.597|0.184|
+|<img src="http://latex.codecogs.com/gif.latex?X_2" title="X_2" />   |elastic modulus of bedding soil|8.153|0.198|
+|<img src="http://latex.codecogs.com/gif.latex?X_3" title="X_3" />   |density of bedding soil|8.759|0.198|
+|<img src="http://latex.codecogs.com/gif.latex?X_4" title="X_4" />   |elastic modulus of backfilling soil|−2.763|0.071|
+|<img src="http://latex.codecogs.com/gif.latex?X_5" title="X_5" />   |density of backfilling soil|−2.595|0.071|
 
-For i = 1,...,5, we generate the inputs using LHS such that Xi ∈ [ai,bi], where ai and bi are the 5th and the 95th quantile of the lognormal distribution of Xi respectively. The response Y (x), tensile stress, is recorded by running the simulator. Before fitting the dataset to any model, the samples for each Xi are normalized to the interval [0, 1].
+For i = 1,...,5, we generate the inputs using LHS such that <img src="http://latex.codecogs.com/gif.latex?X_i\in[a_i,b_i]" title="X_i\in[a_i,b_i]" />, where <img src="http://latex.codecogs.com/gif.latex?a_i" title="a_i" />  and <img src="http://latex.codecogs.com/gif.latex?b_i" title="b_i" /> are the 5th and the 95th quantile of the lognormal distribution of Xi respectively. The response Y (x), tensile stress, is recorded by running the simulator. Before fitting the dataset to any model, the samples for each Xi are normalized to the interval [0, 1].
