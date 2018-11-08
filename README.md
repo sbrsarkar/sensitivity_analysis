@@ -8,9 +8,9 @@ We used a simulator that provides the tensile stress as the output response. Due
 
 
 ## Experiment design
-We chose a sample size of 50 where 40 samples were used as training data to fit the two models (Bayesian GP and BART) and the remaining 10 samples were used as the testing data for validation and to measure the predicting performance of each model. To generate a randomized design of the experiment, we implemented a space-filling design method, the Latin Hypercube Sampling (LHS) on the domain of the five predictors. Based on the prior information we have on the five predictors, all of them are distributed independently as the lognormal distribution with corresponding mean and standard deviation of the Gaussian component are given in Table ??.
+We chose a sample size of 50 where 40 samples were used as training data to fit the two models (Bayesian GP and BART) and the remaining 10 samples were used as the testing data for validation and to measure the predicting performance of each model. To generate a randomized design of the experiment, we implemented a space-filling design method, the Latin Hypercube Sampling (LHS) on the domain of the five predictors. Based on the prior information we have on the five predictors, all of them are distributed independently as the lognormal distribution with corresponding mean and standard deviation of the Gaussian component are given in the table below.
 
-Table 2.1: Simulator inputs
+Simulator inputs
 
 
 |<img src="http://latex.codecogs.com/gif.latex?X_i" title="X_i" />   |Predictor name|mean (<img src="http://latex.codecogs.com/gif.latex?\mu_i" title="\mu_i" />)|sd (<img src="http://latex.codecogs.com/gif.latex?\sigma_i" title="\sigma_i" />)|
@@ -26,10 +26,13 @@ For i = 1,...,5, we generate the inputs using LHS such that <img src="http://lat
 
 ## Bayesian Gaussian Process
 The first model considered is the Bayesian Gaussian Process (GP) model with a non-zero trend function. Since the five material variables are correlated (the backfill shear velocity and the density of backfill are correlated and the bedding shear velocity and the density of bedding are correlated), we propose using the Bayesian GP model with specified linear trend as functions of the 5 variables capturing the correlated structure in them.
-z(x) ∼ GP(f(x)T β, c(·; λ−1, ρ), (2.1)
-where f(x) = (1, f1(x), f2(x), f3(x), f4(x), f5(x)) is the assumed trend function in the GP and
-β = (β1, β2, . . . , β6) ∈ R6 are the unknown regression coefficients. We use the separable Gaussian
-covariance function, c(x, x′) = λ−1 􏰀5 ρ|xi−x′i|, where {ρi} are the unknown correlation parameters i=1 i
-and λ is the precision. The trend functions are specified as,
-f1(x) = √x1, f2(x) = x4x2,
-f3(x) = x5x23, f4(x) = x4, f5(x) = x5.
+
+<img src="http://latex.codecogs.com/gif.latex?z(x)&space;\sim&space;GP(f(x)^T\beta,&space;c(\cdot;&space;\lambda-1,\rho))" title="z(x) \sim GP(f(x)^T\beta, c(\cdot; \lambda-1,\rho))" />, 
+
+where <img src="http://latex.codecogs.com/gif.latex?f(x)&space;=&space;(1,&space;f_1(x),&space;f_2(x),&space;f_3(x),&space;f_4(x),&space;f_5(x))" title="f(x) = (1, f_1(x), f_2(x), f_3(x), f_4(x), f_5(x))" /> is the assumed trend function in the GP and
+<img src="http://latex.codecogs.com/gif.latex?\beta\in\mathbb{R}^6" title="\beta\in\mathbb{R}^6" /> are the unknown regression coefficients. We use the separable Gaussian
+covariance function, <img src="http://latex.codecogs.com/gif.latex?c(x,x')&space;=&space;\lambda^{-1}\prod_{i=1}^5\rho_i^{|x_i-x'_i|}" title="c(x,x') = \lambda^{-1}\prod_{i=1}^5\rho_i^{|x_i-x'_i|}" />, where <img src="http://latex.codecogs.com/gif.latex?\{\rho_i\}" title="\{\rho_i\}" /> are the unknown correlation parameters and <img src="http://latex.codecogs.com/gif.latex?\lambda" title="\lambda" /> is the precision. The trend functions are specified as,
+\begin{align*} 
+f_1(x) &= \sqrt{x_1}, \quad f_2(x) = x_4x_2,\\
+f_3(x) &= x_5 x_2^3, \quad f_4(x) = x_4, \quad f_5(x) = x_5.
+\end{align*}
